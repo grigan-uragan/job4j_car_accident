@@ -15,4 +15,6 @@ public interface AccidentDAO {
     List<AccidentType> getAllTypes();
 
     void addType(AccidentType accidentType);
+
+    AccidentType getTypeById(int id);
 }

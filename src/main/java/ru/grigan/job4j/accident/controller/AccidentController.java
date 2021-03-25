@@ -26,7 +26,10 @@ public class AccidentController {
     }
 
     @RequestMapping("/create")
-    public String createAccident(@ModelAttribute("accident") Accident accident) {
+    public String createAccident(@ModelAttribute("accident") Accident accident,
+                                 @RequestParam("type.id") int id) {
+        AccidentType typeById = service.getTypeById(id);
+        accident.setType(typeById);
         service.addAccident(accident);
         return "redirect:/";
     }

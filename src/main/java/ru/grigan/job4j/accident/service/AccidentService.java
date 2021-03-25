@@ -15,4 +15,6 @@ public interface AccidentService {
     void addType(AccidentType type);
 
     List<AccidentType> allType();
+
+    AccidentType getTypeById(int id);
 }

@@ -47,4 +47,9 @@ public class AccidentDAOImpl implements AccidentDAO {
         accidentType.setId(++countType);
         types.put(accidentType.getId(), accidentType);
     }
+
+    @Override
+    public AccidentType getTypeById(int id) {
+        return types.get(id);
+    }
 }

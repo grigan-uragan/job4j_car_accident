@@ -37,4 +37,9 @@ public class AccidentServiceImpl implements AccidentService {
     public List<AccidentType> allType() {
         return accidentDAO.getAllTypes();
     }
+
+    @Override
+    public AccidentType getTypeById(int id) {
+        return accidentDAO.getTypeById(id);
+    }
 }
