@@ -26,6 +26,7 @@
             <td>id</td>
             <td>name</td>
             <td>description</td>
+            <td>type</td>
             <td>address</td>
             <td>operations</td>
         </tr>
@@ -39,6 +40,7 @@
                 <td>${string.id}</td>
                 <td>${string.name}</td>
                 <td>${string.text}</td>
+                <td>${string.type.name}</td>
                 <td>${string.address}</td>
                 <td>
                     <input type="button" class="btn btn-primary" value="edit" onclick="window.location.href = '${editButton}'">

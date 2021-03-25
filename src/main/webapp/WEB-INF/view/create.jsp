@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -35,6 +36,13 @@
         <div class="mb-3">
             <label for="address" class="form-label"/>
             Address <form:input path="address" id="address" cssClass="form-control"/>
+        </div>
+        <div class="mb-3">
+            <select name="type.id">
+                <c:forEach items="${types}" var="type">
+                    <option value="${type.id}">${type.name}</option>
+                </c:forEach>
+            </select>
         </div>
         <div class="mb-3"><input type="submit" value="save" class="btn btn-primary"></div>
     </form:form>

@@ -2,6 +2,7 @@ package ru.grigan.job4j.accident.repository;
 
 import org.springframework.stereotype.Repository;
 import ru.grigan.job4j.accident.model.Accident;
+import ru.grigan.job4j.accident.model.AccidentType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,12 +12,14 @@ import java.util.Map;
 @Repository
 public class AccidentDAOImpl implements AccidentDAO {
     private static Map<Integer, Accident> store = new HashMap<>();
-    private static int count;
+    private static Map<Integer, AccidentType> types = new HashMap<>();
+    private static int countStore;
+    private static int countType;
 
     @Override
     public void addAccident(Accident accident) {
         if (accident.getId() == 0) {
-            accident.setId(++count);
+            accident.setId(++countStore);
             store.put(accident.getId(), accident);
         } else {
             store.computeIfPresent(accident.getId(), (a, b) -> b = accident);
@@ -32,5 +35,16 @@ public class AccidentDAOImpl implements AccidentDAO {
     @Override
     public Accident getAccidentById(int id) {
         return store.get(id);
+    }
+
+    @Override
+    public List<AccidentType> getAllTypes() {
+        return new ArrayList<>(types.values());
+    }
+
+    @Override
+    public void addType(AccidentType accidentType) {
+        accidentType.setId(++countType);
+        types.put(accidentType.getId(), accidentType);
     }
 }

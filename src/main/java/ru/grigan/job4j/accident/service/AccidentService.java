@@ -1,6 +1,7 @@
 package ru.grigan.job4j.accident.service;
 
 import ru.grigan.job4j.accident.model.Accident;
+import ru.grigan.job4j.accident.model.AccidentType;
 
 import java.util.List;
 
@@ -10,4 +11,8 @@ public interface AccidentService {
     List<Accident> getAllAccident();
 
     Accident getAccidentById(int id);
+
+    void addType(AccidentType type);
+
+    List<AccidentType> allType();
 }

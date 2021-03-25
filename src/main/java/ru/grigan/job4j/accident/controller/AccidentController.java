@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.grigan.job4j.accident.model.Accident;
+import ru.grigan.job4j.accident.model.AccidentType;
 import ru.grigan.job4j.accident.service.AccidentService;
+
+import java.util.List;
 
 @Controller
 public class AccidentController {
@@ -16,7 +19,9 @@ public class AccidentController {
 
     @RequestMapping("/save")
     public String saveAccident(Model model) {
+        List<AccidentType> types = service.allType();
         model.addAttribute("accident", new Accident());
+        model.addAttribute("types", types);
         return "create";
     }
 
