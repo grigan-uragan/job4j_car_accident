@@ -23,13 +23,19 @@
     <table class="table table-striped table-dark">
         <thead>
         <tr>
-            <td>Message</td>
+            <td>id</td>
+            <td>name</td>
+            <td>description</td>
+            <td>address</td>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="string" items="${strings}">
+        <c:forEach var="string" items="${accident}">
             <tr>
-                <td>${string}</td>
+                <td>${string.id}</td>
+                <td>${string.name}</td>
+                <td>${string.text}</td>
+                <td>${string.address}</td>
             </tr>
         </c:forEach>
         </tbody>
