@@ -8,4 +8,6 @@ public interface AccidentService {
     void addAccident(Accident accident);
 
     List<Accident> getAllAccident();
+
+    Accident getAccidentById(int id);
 }

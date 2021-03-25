@@ -18,9 +18,9 @@ public class IndexController {
     public String index(Model model) {
         List<Accident> accidents = service.getAllAccident();
         if (accidents.isEmpty()) {
-            service.addAccident(new Accident(1, "First accident",
+            service.addAccident(new Accident("First accident",
                     "speed limit over", "Lenin street"));
-            service.addAccident(new Accident(2, "Second accident",
+            service.addAccident(new Accident("Second accident",
                     "driving to a stoplight signal", "Gagarin street"));
         }
         model.addAttribute("accident", accidents);

@@ -15,11 +15,22 @@ public class AccidentDAOImpl implements AccidentDAO {
 
     @Override
     public void addAccident(Accident accident) {
-            store.put(count++, accident);
+        if (accident.getId() == 0) {
+            accident.setId(++count);
+            store.put(accident.getId(), accident);
+        } else {
+            store.computeIfPresent(accident.getId(), (a, b) -> b = accident);
+        }
+
     }
 
     @Override
     public List<Accident> getAllAccident() {
         return new ArrayList<>(store.values());
+    }
+
+    @Override
+    public Accident getAccidentById(int id) {
+        return store.get(id);
     }
 }

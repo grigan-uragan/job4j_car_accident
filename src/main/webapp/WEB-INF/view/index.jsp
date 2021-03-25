@@ -27,19 +27,29 @@
             <td>name</td>
             <td>description</td>
             <td>address</td>
+            <td>operations</td>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="string" items="${accident}">
+            <c:url var="editButton" value="/edit">
+                <c:param name="accidentId" value="${string.id}"/>
+            </c:url>
             <tr>
                 <td>${string.id}</td>
                 <td>${string.name}</td>
                 <td>${string.text}</td>
                 <td>${string.address}</td>
+                <td>
+                    <input type="button" class="btn btn-primary" value="edit" onclick="window.location.href = '${editButton}'">
+                </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <div class="container">
+        <input type="button" value="add accident" class="btn btn-primary" onclick="window.location.href='save'">
+    </div>
 </div>
 </body>
 </html>

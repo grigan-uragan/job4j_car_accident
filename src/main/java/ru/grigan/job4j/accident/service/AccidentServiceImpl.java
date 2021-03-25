@@ -21,4 +21,9 @@ public class AccidentServiceImpl implements AccidentService {
     public List<Accident> getAllAccident() {
         return accidentDAO.getAllAccident();
     }
+
+    @Override
+    public Accident getAccidentById(int id) {
+        return accidentDAO.getAccidentById(id);
+    }
 }

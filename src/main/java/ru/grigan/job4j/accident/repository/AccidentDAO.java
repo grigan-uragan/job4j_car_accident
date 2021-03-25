@@ -8,4 +8,6 @@ public interface AccidentDAO {
     void addAccident(Accident accident);
 
     List<Accident> getAllAccident();
+
+    Accident getAccidentById(int id);
 }
