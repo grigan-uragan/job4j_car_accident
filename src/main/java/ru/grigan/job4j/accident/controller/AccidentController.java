@@ -37,7 +37,9 @@ public class AccidentController {
     @RequestMapping("/edit")
     public String editAccident(@RequestParam("accidentId") int id, Model model) {
         Accident accidentById = service.getAccidentById(id);
+        List<AccidentType> types = service.allType();
         model.addAttribute("accident", accidentById);
+        model.addAttribute("types", types);
         return "create";
     }
 

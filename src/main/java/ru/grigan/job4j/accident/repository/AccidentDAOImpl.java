@@ -16,6 +16,15 @@ public class AccidentDAOImpl implements AccidentDAO {
     private static int countStore;
     private static int countType;
 
+    public AccidentDAOImpl() {
+        addType(new AccidentType("two cars"));
+        addType(new AccidentType("Bike and car"));
+        addAccident(new Accident("first accident", "speed limit over",
+                "Lenin street", getTypeById(1)));
+        addAccident(new Accident("second accident", "driving to a stoplight signal",
+                "Gagarin street", getTypeById(2)));
+    }
+
     @Override
     public void addAccident(Accident accident) {
         if (accident.getId() == 0) {
