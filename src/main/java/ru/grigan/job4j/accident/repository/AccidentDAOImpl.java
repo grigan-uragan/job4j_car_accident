@@ -8,13 +8,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentDAOImpl implements AccidentDAO {
     private static Map<Integer, Accident> store = new HashMap<>();
     private static Map<Integer, AccidentType> types = new HashMap<>();
-    private static int countStore;
-    private static int countType;
+    private static AtomicInteger countStore = new AtomicInteger();
+    private static AtomicInteger countType = new AtomicInteger();
 
     public AccidentDAOImpl() {
         addType(new AccidentType("two cars"));
@@ -28,7 +29,7 @@ public class AccidentDAOImpl implements AccidentDAO {
     @Override
     public void addAccident(Accident accident) {
         if (accident.getId() == 0) {
-            accident.setId(++countStore);
+            accident.setId(countStore.incrementAndGet());
             store.put(accident.getId(), accident);
         } else {
             store.computeIfPresent(accident.getId(), (a, b) -> b = accident);
@@ -53,7 +54,7 @@ public class AccidentDAOImpl implements AccidentDAO {
 
     @Override
     public void addType(AccidentType accidentType) {
-        accidentType.setId(++countType);
+        accidentType.setId(countType.incrementAndGet());
         types.put(accidentType.getId(), accidentType);
     }
 
