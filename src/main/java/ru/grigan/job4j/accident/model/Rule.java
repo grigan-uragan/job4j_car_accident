@@ -4,6 +4,9 @@ public class Rule {
     private int id;
     private String name;
 
+    public Rule() {
+    }
+
     public Rule(String name) {
         this.name = name;
     }
@@ -42,4 +45,12 @@ public class Rule {
     public int hashCode() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "Rule{" + "id="
+                + id + ", name='"
+                + name + '\'' + '}';
+    }
 }
+

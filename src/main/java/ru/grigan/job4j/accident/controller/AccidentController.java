@@ -8,6 +8,7 @@ import ru.grigan.job4j.accident.model.Accident;
 import ru.grigan.job4j.accident.model.AccidentType;
 import ru.grigan.job4j.accident.model.Rule;
 import ru.grigan.job4j.accident.service.AccidentService;
+import ru.grigan.job4j.accident.service.JdbcService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashSet;
@@ -17,7 +18,7 @@ import java.util.Set;
 @Controller
 public class AccidentController {
     @Autowired
-    private AccidentService service;
+    private JdbcService service;
 
     @GetMapping("/save")
     public String saveAccident(Model model) {

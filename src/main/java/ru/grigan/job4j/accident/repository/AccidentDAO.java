@@ -1,27 +1,37 @@
 package ru.grigan.job4j.accident.repository;
 
+import org.springframework.stereotype.Repository;
 import ru.grigan.job4j.accident.model.Accident;
-import ru.grigan.job4j.accident.model.AccidentType;
-import ru.grigan.job4j.accident.model.Rule;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public interface AccidentDAO {
-    void addAccident(Accident accident);
+@Repository
+public class AccidentDAO implements DAO<Accident> {
+    private static Map<Integer, Accident> store = new HashMap<>();
+    private static AtomicInteger countStore = new AtomicInteger();
 
-    List<Accident> getAllAccident();
+    @Override
+    public void add(Accident accident) {
+        if (accident.getId() == 0) {
+            accident.setId(countStore.incrementAndGet());
+            store.put(accident.getId(), accident);
+        } else {
+            store.computeIfPresent(accident.getId(), (a, b) -> b = accident);
+        }
+    }
 
-    Accident getAccidentById(int id);
+    @Override
+    public List<Accident> getAll() {
+        return new ArrayList<>(store.values());
+    }
 
-    List<AccidentType> getAllTypes();
+    @Override
+    public Accident getById(int id) {
+        return store.get(id);
+    }
 
-    void addType(AccidentType accidentType);
-
-    AccidentType getTypeById(int id);
-
-    void addRule(Rule rule);
-
-    List<Rule> getAllRule();
-
-    Rule getRuleById(int id);
 }
