@@ -46,6 +46,13 @@
                 </c:forEach>
             </select>
         </div>
+        <div class="mb-3">
+            <select name="rIds" multiple>
+                <c:forEach var="rule" items="${rules}">
+                    <option value="${rule.id}">${rule.name}</option>
+                </c:forEach>
+            </select>
+        </div>
         <div class="mb-3"><input type="submit" value="save" class="btn btn-primary"></div>
     </form:form>
 </div>

@@ -28,6 +28,7 @@
             <td>id</td>
             <td>name</td>
             <td>description</td>
+            <td>rules</td>
             <td>type</td>
             <td>address</td>
             <td>operations</td>
@@ -42,6 +43,11 @@
                 <td>${string.id}</td>
                 <td>${string.name}</td>
                 <td>${string.text}</td>
+                <td>
+                    <c:forEach var="rule" items="${string.rules}">
+                        <p>${rule.name}</p>
+                    </c:forEach>
+                </td>
                 <td>${string.type.name}</td>
                 <td>${string.address}</td>
                 <td>

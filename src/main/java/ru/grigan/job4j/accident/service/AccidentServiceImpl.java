@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.grigan.job4j.accident.model.Accident;
 import ru.grigan.job4j.accident.model.AccidentType;
+import ru.grigan.job4j.accident.model.Rule;
 import ru.grigan.job4j.accident.repository.AccidentDAO;
 
 import java.util.List;
@@ -41,5 +42,20 @@ public class AccidentServiceImpl implements AccidentService {
     @Override
     public AccidentType getTypeById(int id) {
         return accidentDAO.getTypeById(id);
+    }
+
+    @Override
+    public void addRule(Rule rule) {
+        accidentDAO.addRule(rule);
+    }
+
+    @Override
+    public List<Rule> getAllRule() {
+        return accidentDAO.getAllRule();
+    }
+
+    @Override
+    public Rule getRuleById(int id) {
+        return accidentDAO.getRuleById(id);
     }
 }

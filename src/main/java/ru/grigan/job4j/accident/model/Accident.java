@@ -1,6 +1,7 @@
 package ru.grigan.job4j.accident.model;
 
 import java.util.Objects;
+import java.util.Set;
 
 public class Accident {
     private int id;
@@ -8,6 +9,7 @@ public class Accident {
     private String text;
     private String address;
     private AccidentType type;
+    private Set<Rule> rules;
 
     public Accident() {
     }
@@ -23,6 +25,14 @@ public class Accident {
         this.name = name;
         this.text = text;
         this.address = address;
+    }
+
+    public Set<Rule> getRules() {
+        return rules;
+    }
+
+    public void setRules(Set<Rule> rules) {
+        this.rules = rules;
     }
 
     public AccidentType getType() {
