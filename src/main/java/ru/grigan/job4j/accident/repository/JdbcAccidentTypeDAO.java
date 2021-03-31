@@ -7,7 +7,7 @@ import ru.grigan.job4j.accident.model.AccidentType;
 
 import java.util.List;
 
-@Repository
+//@Repository
 public class JdbcAccidentTypeDAO implements DAO<AccidentType> {
     private JdbcTemplate template;
     private final RowMapper<AccidentType> rowMapper = (resultSet, i) -> {

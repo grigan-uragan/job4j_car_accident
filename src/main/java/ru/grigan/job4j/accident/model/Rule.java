@@ -1,6 +1,12 @@
 package ru.grigan.job4j.accident.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "rules")
 public class Rule {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 

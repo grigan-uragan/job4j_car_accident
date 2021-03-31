@@ -14,7 +14,7 @@ import ru.grigan.job4j.accident.model.Rule;
 import java.sql.PreparedStatement;
 import java.util.*;
 
-@Repository
+//@Repository
 public class JdbcAccidentDAO implements DAO<Accident> {
     private static final Logger LOG = LoggerFactory.getLogger(JdbcAccidentDAO.class);
     private JdbcTemplate template;

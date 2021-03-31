@@ -9,7 +9,7 @@ import ru.grigan.job4j.accident.model.Rule;
 import java.util.List;
 import java.util.Set;
 
-@Repository
+//@Repository
 public class JdbcRuleDao implements DAO<Rule> {
 
     private JdbcTemplate template;

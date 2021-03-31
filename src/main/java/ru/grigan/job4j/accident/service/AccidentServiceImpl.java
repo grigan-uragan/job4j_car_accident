@@ -12,7 +12,7 @@ import ru.grigan.job4j.accident.repository.RuleDAO;
 import java.util.List;
 import java.util.Set;
 
-@Service
+//@Service
 public class AccidentServiceImpl implements AccidentService {
 
     private AccidentDAO accidentDAO;

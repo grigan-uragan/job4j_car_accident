@@ -10,7 +10,7 @@ import ru.grigan.job4j.accident.repository.JdbcRuleDao;
 
 import java.util.List;
 
-@Service
+//@Service
 public class JdbcService implements AccidentService {
     private JdbcRuleDao ruleDao;
     private JdbcAccidentTypeDAO typeDAO;

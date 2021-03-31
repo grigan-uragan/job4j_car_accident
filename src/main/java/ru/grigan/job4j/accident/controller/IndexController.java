@@ -6,14 +6,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.grigan.job4j.accident.model.Accident;
 import ru.grigan.job4j.accident.service.AccidentService;
+import ru.grigan.job4j.accident.service.HibernateService;
 import ru.grigan.job4j.accident.service.JdbcService;
 
 import java.util.List;
 
 @Controller
 public class IndexController {
-    @Autowired
-    private JdbcService service;
+
+    private HibernateService service;
+
+    public IndexController(HibernateService service) {
+        this.service = service;
+    }
 
     @GetMapping("/")
     public String index(Model model) {
