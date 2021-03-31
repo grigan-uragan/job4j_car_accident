@@ -10,6 +10,7 @@ import ru.grigan.job4j.accident.model.Rule;
 import ru.grigan.job4j.accident.service.AccidentService;
 import ru.grigan.job4j.accident.service.HibernateService;
 import ru.grigan.job4j.accident.service.JdbcService;
+import ru.grigan.job4j.accident.service.JpaService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashSet;
@@ -19,9 +20,9 @@ import java.util.Set;
 @Controller
 public class AccidentController {
 
-    private HibernateService service;
+    private JpaService service;
 
-    public AccidentController(HibernateService service) {
+    public AccidentController(JpaService service) {
         this.service = service;
     }
 
