@@ -27,7 +27,7 @@ public class AccidentHibernateDAO implements DAO<Accident> {
     public List<Accident> getAll() {
         try (Session session = sessionFactory.openSession()) {
             return session.createQuery(
-                    "select a from Accident a join fetch a.rules order by a.id",
+                    "select distinct a from Accident a join fetch a.rules order by a.id",
                     Accident.class).list();
         }
     }
@@ -36,7 +36,8 @@ public class AccidentHibernateDAO implements DAO<Accident> {
     public Accident getById(int id) {
         try (Session session = sessionFactory.openSession()) {
             return session.createQuery(
-                    "select a from Accident a join fetch a.rules where a.id = :id", Accident.class)
+                    "select distinct a from Accident a join fetch a.rules where a.id = :id",
+                    Accident.class)
                     .setParameter("id", id).uniqueResult();
         }
     }
