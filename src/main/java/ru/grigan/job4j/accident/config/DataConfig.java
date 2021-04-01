@@ -38,7 +38,8 @@ public class DataConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setGenerateDdl(true);
-        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+        LocalContainerEntityManagerFactoryBean factory =
+                new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPackagesToScan("ru.grigan.job4j.accident");
         factory.setDataSource(dataSource);
@@ -46,7 +47,8 @@ public class DataConfig {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+    public PlatformTransactionManager transactionManager(
+            EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
