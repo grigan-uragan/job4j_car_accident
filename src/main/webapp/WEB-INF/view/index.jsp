@@ -21,7 +21,7 @@
 
 
 <div class="container ">
-    <h2 class="text-center">Hello : Accident</h2>
+    <h2 class="text-center">Hello : ${user.username}</h2>
     <table class="table table-striped table-dark">
         <thead>
         <tr>

@@ -1,6 +1,7 @@
 package ru.grigan.job4j.accident.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,10 @@ public class IndexController {
     public String index(Model model) {
         List<Accident> accidents = service.getAllAccident();
         model.addAttribute("accident", accidents);
+        model.addAttribute("user", SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getPrincipal());
         return "index";
     }
 }
