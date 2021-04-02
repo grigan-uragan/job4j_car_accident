@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-//@Repository
+@Repository
 public class RuleDAO implements DAO<Rule> {
-    private static Map<Integer, Rule> rules = new HashMap<>();
-    private static AtomicInteger countRule = new AtomicInteger();
+    private final Map<Integer, Rule> rules = new HashMap<>();
+    private final AtomicInteger countRule = new AtomicInteger();
 
     @Override
     public void add(Rule rule) {

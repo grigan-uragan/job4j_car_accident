@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-//@Repository
+@Repository
 public class AccidentDAO implements DAO<Accident> {
-    private static Map<Integer, Accident> store = new HashMap<>();
-    private static AtomicInteger countStore = new AtomicInteger();
+    private final Map<Integer, Accident> store = new HashMap<>();
+    private final AtomicInteger countStore = new AtomicInteger();
 
     @Override
     public void add(Accident accident) {
