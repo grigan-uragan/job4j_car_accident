@@ -2,47 +2,37 @@
 <%--
   Created by IntelliJ IDEA.
   User: Admin
-  Date: 01.04.2021
-  Time: 12:05
+  Date: 03.04.2021
+  Time: 11:36
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Login Page</title>
+    <title>Registration</title>
 </head>
 <body>
-<c:if test="${not empty errorMessage}">
-    <div style="color: red; font-weight: bold; margin: 30px 0px;">
-            ${errorMessage}
-    </div>
-</c:if>
 
-<div>
-    <a href="<c:url value='/reg'/>">Registration</a>
-</div>
-
-<form name="login" action="<c:url value="/login"/>" method="post">
+<form name = "login" action="<c:url value='/reg'/> " method="post">
     <table>
         <tr>
-            <td>Username:</td>
+            <td>Username</td>
             <td>
                 <input type="text" name="username">
             </td>
         </tr>
         <tr>
-            <td>Password:</td>
+            <td>Password</td>
             <td>
                 <input type="password" name="password">
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" name="submit" value="submit">
+                <input type="submit" value="submit" name="submit">
             </td>
         </tr>
     </table>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 </form>
 
 </body>

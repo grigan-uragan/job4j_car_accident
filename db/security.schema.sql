@@ -1,10 +1,12 @@
-create table users (
-    username varchar(50) primary key,
-    password varchar(100),
-    enabled boolean default true
+create table authorities (
+    id        serial primary key,
+    authority varchar(50) not null unique
 );
 
-create table authorities (
-    username varchar(50) not null references users(username),
-    authority varchar(50) not null
+create table users (
+    id       serial primary key,
+    username varchar(50) not null unique,
+    password varchar(100) not null ,
+    enabled  boolean default true,
+    authority_id int references authorities(id)
 );
