@@ -1,15 +1,11 @@
 package ru.grigan.job4j.accident.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.grigan.job4j.accident.model.Accident;
 import ru.grigan.job4j.accident.model.AccidentType;
 import ru.grigan.job4j.accident.model.Rule;
-import ru.grigan.job4j.accident.service.AccidentService;
-import ru.grigan.job4j.accident.service.HibernateService;
-import ru.grigan.job4j.accident.service.JdbcService;
 import ru.grigan.job4j.accident.service.JpaService;
 
 import javax.servlet.http.HttpServletRequest;
